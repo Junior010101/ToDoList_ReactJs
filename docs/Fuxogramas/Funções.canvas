@@ -1,0 +1,19 @@
+{
+	"nodes":[
+		{"id":"5ab699a04d5b1817","type":"text","text":"<div style=\"text-align: center;\">\n  <table border=\"1\" style=\"margin: auto;\">\n    <tr>\n      <th>Pessoa</th>\n      <th>Função</th>\n    </tr>\n    <tr>\n      <td>Gabriel</td>\n      <td>Design</td>\n    </tr>\n    <tr>\n      <td>Vinicius</td>\n      <td>Código</td>\n    </tr>\n    <tr>\n      <td>Marcondes</td>\n      <td>Gestão</td>\n    </tr>\n  </table>\n</div>","x":-280,"y":-60,"width":200,"height":160},
+		{"id":"03b727f2da511c00","type":"text","text":"#💻Vinicius\n\n**Função: **Código\n\n- Integração\n- Armazenamento de dados","x":-280,"y":-420,"width":250,"height":200,"color":"4"},
+		{"id":"59804e8b445c1b7a","type":"file","file":"Info/Sobre.md","x":-75,"y":-1000,"width":400,"height":380},
+		{"id":"94738a33f3294845","type":"text","text":"#🎨Gabriel\n\n** Função: **Design\n- _ Interface_\n","x":-580,"y":-420,"width":260,"height":180,"color":"3"},
+		{"id":"1c9d9980f50de9f5","type":"text","text":"#📋Marcondes\n\nFunção: Gestão\n- Planejamento\n- Entregas\n- Organização","x":0,"y":-420,"width":250,"height":210,"color":"1"},
+		{"id":"55a6183098d49414","type":"text","text":"<div style=\"text-align: center;\">\n  <table border=\"1\" style=\"margin: auto; \" >\n    <tr>\n      <th  style=\"text-align: center;\">Status</th>\n      <th  style=\"text-align: center;\">Cor</th>\n    </tr>\n    <tr>\n      <td>Disponivel</td>\n      <td  style=\"text-align: center;\">🟢</td>\n    </tr>\n    <tr>\n      <td>Ocupado</td>\n      <td style=\"text-align: center;\">🔴</td>\n    </tr>\n    <tr>\n      <td>Em produção</td>\n      <td style=\"text-align: center;\">🟡</td>\n    </tr>\n  </table>\n</div>","x":-580,"y":-60,"width":214,"height":160}
+	],
+	"edges":[
+		{"id":"b207600cf3bf03fd","fromNode":"5ab699a04d5b1817","fromSide":"top","toNode":"94738a33f3294845","toSide":"bottom"},
+		{"id":"15106a05f85bc420","fromNode":"5ab699a04d5b1817","fromSide":"top","toNode":"03b727f2da511c00","toSide":"bottom"},
+		{"id":"8c292c150794cfa1","fromNode":"5ab699a04d5b1817","fromSide":"top","toNode":"1c9d9980f50de9f5","toSide":"bottom"},
+		{"id":"56c4ec26fee34fdc","fromNode":"5ab699a04d5b1817","fromSide":"left","toNode":"55a6183098d49414","toSide":"right"},
+		{"id":"60d9605e79ea2445","fromNode":"59804e8b445c1b7a","fromSide":"bottom","toNode":"1c9d9980f50de9f5","toSide":"top","fromEnd":"arrow"},
+		{"id":"73caeca26051103b","fromNode":"59804e8b445c1b7a","fromSide":"left","toNode":"94738a33f3294845","toSide":"top","color":"6"},
+		{"id":"2df73b895c0e2579","fromNode":"94738a33f3294845","fromSide":"top","toNode":"03b727f2da511c00","toSide":"top","color":"6"}
+	]
+}
