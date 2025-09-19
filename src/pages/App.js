@@ -34,9 +34,7 @@ function App() {
 
   const toggleConcluir = (id) => {
     setTarefas(
-      tarefas.map((t) =>
-        t.id === id ? { ...t, concluida: !t.concluida } : t
-      )
+      tarefas.map((t) => (t.id === id ? { ...t, concluida: !t.concluida } : t))
     );
   };
 
@@ -59,21 +57,22 @@ function App() {
   });
 
   return (
-    <div className="container my-4">
-      <h2 className="text-center mb-4">To do List</h2>
+    <div className="container position-absolute top-50 start-50 translate-middle">
+      <h2 className="text-center mb-4 text-primary-emphasis">To do List</h2>
 
       {/* Formulário */}
       <form
         onSubmit={adicionarTarefa}
         className="d-flex flex-column gap-2 mb-3"
       >
-        <div className="input-group mb-3">
-          <div className="bg-primary ps-3 pe-2 align-center">
-            <i className="bi bi-bookmarks"/>
-          </div>
+        <div className="input-group mb-3 text-center">
+          <label className="bg-info p-2 fs-3 rounded-start-2" htmlFor="tarefa">
+            <i className="bi bi-bookmark-fill text-white px-2 py-2" />
+          </label>
           <input
             type="text"
-            className="form-control"
+            id="tarefa"
+            className="form-control bg-body-secondary"
             placeholder="Nova tarefa"
             value={tarefa}
             onChange={(e) => setTarefa(e.target.value)}
@@ -81,58 +80,73 @@ function App() {
           />
         </div>
 
-        <select
-          className="form-select"
-          value={categoria}
-          onChange={(e) => setCategoria(e.target.value)}
-          required
-        >
-        <option value="" disabled>Selecione uma categoria</option>
-          <option value="Trabalho">Trabalho</option>
-          <option value="Pessoal">Pessoal</option>
-          <option value="Estudos">Estudos</option>
-        </select>
-
-      <button type="submit" className="btn btn-success">Adicionar nova tarefa</button>
+        <div className="input-group mb-3 text-center">
+          <select
+            id="categoria"
+            className="form-select bg-body-secondary "
+            value={categoria}
+            onChange={(e) => setCategoria(e.target.value)}
+            required
+          >
+            <option value="" disabled>
+              Selecione uma categoria
+            </option>
+            <option value="Trabalho">Trabalho</option>
+            <option value="Pessoal">Pessoal</option>
+            <option value="Estudos">Estudos</option>
+          </select>
+          <label htmlFor="categoria" className="bg-info p-2 fs-3 rounded-end">
+            <i class="bi bi-columns-gap text-white p-2"></i>
+          </label>
+        </div>
+        <div className="d-flex">
+          <button type="submit" className="btn btn-success py-3 px-5">
+            Adicionar nova tarefa
+          </button>
+          <select
+            className="form-select w-auto ms-auto bg-body-secondary"
+            value={filtro}
+            onChange={(e) => setFiltro(e.target.value)}
+          >
+            <option value="Tudo">Tudo</option>
+            <option value="Concluídas">Concluídas</option>
+            <option value="Pendentes">Pendentes</option>
+          </select>
+        </div>
       </form>
 
       {/* Filtro */}
-      <div className="d-flex justify-content-between align-items-center mb-3">
+      <div className="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
         <span>
           Total: {tarefas.length} | Concluídas:{" "}
           {tarefas.filter((t) => t.concluida).length}
         </span>
-        <select
-          className="form-select w-auto"
-          value={filtro}
-          onChange={(e) => setFiltro(e.target.value)}
-        >
-          <option value="Tudo">Tudo</option>
-          <option value="Concluídas">Concluídas</option>
-          <option value="Pendentes">Pendentes</option>
-        </select>
       </div>
-
       {/* Lista de tarefas */}
       <ul className="list-group mb-3">
         {tarefasFiltradas.map((t) => (
-          <li
+          <label
             key={t.id}
-            className="list-group-item d-flex justify-content-between align-items-center"
+            htmlFor={t.id}
+            className="list-group-item d-flex justify-content-between align-items-center shadow border mb-4"
           >
             <div>
               <input
                 type="checkbox"
+                id={t.id}
                 className="form-check-input me-2"
                 checked={t.concluida}
                 onChange={() => toggleConcluir(t.id)}
               />
               <span
                 className={`${
-                  t.concluida ? "text-decoration-line-through text-muted" : ""
+                  t.concluida ? "text-decoration-line-through text-danger" : ""
                 }`}
               >
-                {t.texto} <span className="badge bg-secondary">{t.categoria}</span>
+                {t.texto}{" "}
+                <span className="badge bg-secondary user-select-none">
+                  {t.categoria}
+                </span>
               </span>
             </div>
             <button
@@ -141,13 +155,16 @@ function App() {
             >
               <i className="bi bi-trash"></i>
             </button>
-          </li>
+          </label>
         ))}
       </ul>
 
       {/* Botões de exclusão */}
       <div className="d-flex gap-2">
-        <button className="btn btn-warning flex-fill" onClick={deletarConcluidas}>
+        <button
+          className="btn btn-warning flex-fill"
+          onClick={deletarConcluidas}
+        >
           <i className="bi bi-check2-circle"></i> Deletar concluídas
         </button>
         <button className="btn btn-danger flex-fill" onClick={deletarTodas}>
