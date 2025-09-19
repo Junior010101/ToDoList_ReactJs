@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
+body {
+  background-color: #f5f5f5;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 600px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* título */
+h2 {
+  font-weight: bold;
+  margin-bottom: 1.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* input e select */
+input.form-control,
+select.form-select {
+  border-radius: 8px;
+  box-shadow: none;
+  border: 1px solid #ccc;
+}
+
+/* botão adicionar */
+button.btn-success {
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 500;
+}
+
+/* lista de tarefas */
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid #eee;
+  padding: 0.75rem 0.5rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.list-group-item:last-child {
+  border-bottom: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list-group-item span {
+  font-size: 0.95rem;
+}
+
+.list-group-item .badge {
+  font-size: 0.7rem;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* checkbox */
+.form-check-input {
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+/* botões de exclusão */
+.btn-warning, .btn-danger {
+  border-radius: 8px;
+  font-weight: 500;
 }
